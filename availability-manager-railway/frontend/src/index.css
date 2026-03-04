@@ -1,0 +1,187 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #0a0f1e;
+  --bg-secondary: #0f1729;
+  --bg-card: #131d35;
+  --bg-hover: #1a2540;
+  --border: #1e2d4a;
+  --border-bright: #2a3f6a;
+  --accent: #3b82f6;
+  --accent-glow: rgba(59, 130, 246, 0.3);
+  --text-primary: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --text-muted: #475569;
+  --red: #ef4444;
+  --orange: #f97316;
+  --purple: #8b5cf6;
+  --green: #22c55e;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--border-bright); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* ── react-big-calendar overrides ── */
+.rbc-calendar {
+  background: transparent !important;
+  color: var(--text-primary) !important;
+  font-family: 'DM Sans', sans-serif !important;
+}
+
+.rbc-header {
+  background: var(--bg-secondary) !important;
+  border-color: var(--border) !important;
+  color: var(--text-secondary) !important;
+  padding: 8px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+}
+
+.rbc-month-view,
+.rbc-time-view,
+.rbc-agenda-view {
+  border-color: var(--border) !important;
+}
+
+.rbc-day-bg {
+  border-color: var(--border) !important;
+}
+
+.rbc-day-bg:hover {
+  background: var(--bg-hover) !important;
+  cursor: pointer;
+}
+
+.rbc-off-range-bg {
+  background: rgba(0,0,0,0.2) !important;
+}
+
+.rbc-today {
+  background: rgba(59, 130, 246, 0.08) !important;
+}
+
+.rbc-date-cell {
+  color: var(--text-secondary) !important;
+  padding: 4px 8px !important;
+  font-size: 13px !important;
+}
+
+.rbc-date-cell.rbc-now {
+  color: var(--accent) !important;
+  font-weight: 700 !important;
+}
+
+.rbc-event {
+  border-radius: 4px !important;
+  border: none !important;
+  font-size: 12px !important;
+  font-family: 'Space Mono', monospace !important;
+  padding: 2px 6px !important;
+}
+
+.rbc-event:focus {
+  outline: none !important;
+}
+
+.rbc-toolbar {
+  margin-bottom: 16px !important;
+}
+
+.rbc-toolbar button {
+  background: var(--bg-card) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border) !important;
+  border-radius: 6px !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 13px !important;
+  padding: 6px 12px !important;
+  transition: all 0.15s ease !important;
+}
+
+.rbc-toolbar button:hover,
+.rbc-toolbar button.rbc-active {
+  background: var(--accent) !important;
+  border-color: var(--accent) !important;
+  color: white !important;
+}
+
+.rbc-toolbar-label {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  color: var(--text-primary) !important;
+  letter-spacing: -0.02em !important;
+}
+
+.rbc-show-more {
+  color: var(--accent) !important;
+  font-size: 11px !important;
+}
+
+.rbc-slot-selection {
+  background: var(--accent-glow) !important;
+  border-color: var(--accent) !important;
+}
+
+.rbc-time-slot {
+  border-color: var(--border) !important;
+}
+
+.rbc-timeslot-group {
+  border-color: var(--border) !important;
+}
+
+.rbc-time-content {
+  border-color: var(--border) !important;
+}
+
+.rbc-time-gutter .rbc-label {
+  color: var(--text-muted) !important;
+  font-size: 11px !important;
+  font-family: 'Space Mono', monospace !important;
+}
+
+.rbc-current-time-indicator {
+  background-color: var(--accent) !important;
+  height: 2px !important;
+}
+
+/* ── Animations ── */
+@keyframes slideIn {
+  from { transform: translateY(-8px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 var(--accent-glow); }
+  50% { box-shadow: 0 0 12px 4px var(--accent-glow); }
+}
+
+.animate-slide-in { animation: slideIn 0.2s ease forwards; }
+.animate-fade-in { animation: fadeIn 0.2s ease forwards; }
+.pulse-glow { animation: pulse-glow 2s infinite; }
